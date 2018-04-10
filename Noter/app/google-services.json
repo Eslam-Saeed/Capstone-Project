@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "712109078805",
+    "firebase_url": "https://noter-1f8b4.firebaseio.com",
+    "project_id": "noter-1f8b4",
+    "storage_bucket": "noter-1f8b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712109078805:android:9987a0a7a1b2c9e9",
+        "android_client_info": {
+          "package_name": "com.udacity.noter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712109078805-gptmvea8qs7hopo3cv24shkrnpjifh4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_dyMG4xEE3ROac5RSo4tgZM1lhFQdJi8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

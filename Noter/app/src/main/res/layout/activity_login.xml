@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context="com.udacity.noter.login.ActivityLogin"
+    >
+
+    <include
+        android:id="@+id/toolbarLogin"
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarLogin"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/margin_xxlarge"
+            android:paddingStart="@dimen/margin_xxlarge">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_xxlarge"
+                app:srcCompat="@mipmap/app_logo"/>
+
+            <EditText
+                android:id="@+id/edtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgLogo"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:hint="@string/username"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="@dimen/margin_small"/>
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtUserName"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingStart="@dimen/margin_small"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btnHeight"
+                android:layout_below="@id/edtPassword"
+                android:layout_marginEnd="@dimen/margin_xlarge"
+                android:layout_marginStart="@dimen/margin_xlarge"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:background="@drawable/button_curved"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/progressLogin"
+        layout="@layout/progress_bar"
+        android:visibility="gone"/>
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Noter</string>
+    <string name="now">now</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="username_empty">Username can\'t be empty!</string>
+    <string name="password_empty">Password can\'t empty!</string>
+    <string name="something_went_wrong">Something went wrong, please try again.</string>
+    <string name="title">Title</string>
+    <string name="add">Add</string>
+    <string name="add_note">Add note</string>
+    <string name="title_empty">Title can\'t be empty!</string>
+    <string name="add_note_success">Note added successfully</string>
+    <string name="user_already_exists">Username already exists!</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+</resources>
