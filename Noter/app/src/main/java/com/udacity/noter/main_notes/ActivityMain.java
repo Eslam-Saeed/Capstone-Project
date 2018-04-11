@@ -41,7 +41,8 @@ public class ActivityMain extends BaseActivity implements FragmentListingNotes.L
         initializeViews();
         setListeners();
         setToolbar(toolbarMainNotes, getString(R.string.app_name), true, true);
-        replaceFragment(FragmentListingNotes.newInstance(), R.id.frameListingNotes, false);
+        if (savedInstanceState == null)
+            replaceFragment(FragmentListingNotes.newInstance(), R.id.frameListingNotes, false);
     }
 
     @Override
