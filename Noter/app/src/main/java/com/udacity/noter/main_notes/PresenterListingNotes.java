@@ -56,17 +56,23 @@ public class PresenterListingNotes extends BasePresenter {
         @Override
         protected void onPostExecute(String response) {
             mViewListingNotes.showProgress(false);
-            if (!TextUtils.isEmpty(response) && !response.contains(Constants.GeneralKeys.FAILED_MESSAGE)) {
-                Type type = new TypeToken<ArrayList<Note>>() {
-                }.getType();
-                ArrayList<Note> result = MyApplication.getmGson().fromJson(response, type);
-                if (result != null) {
-                    listNotes.addAll(result);
-                    mViewListingNotes.onListingNotesSuccess();
+            try {
+
+                if (!TextUtils.isEmpty(response) && !response.contains(Constants.GeneralKeys.FAILED_MESSAGE)) {
+                    Type type = new TypeToken<ArrayList<Note>>() {
+                    }.getType();
+                    ArrayList<Note> result = MyApplication.getmGson().fromJson(response, type);
+                    if (result != null) {
+                        listNotes.addAll(result);
+                        mViewListingNotes.onListingNotesSuccess();
+                    } else
+                        mViewListingNotes.onListingNotesFails(mContext.getString(R.string.something_went_wrong));
                 } else
-                    mViewListingNotes.onListingNotesFails(mContext.getString(R.string.something_went_wrong));
-            } else
-                mViewListingNotes.onListingNotesFails(mContext.getString(R.string.user_already_exists));
+                    mViewListingNotes.onListingNotesFails(mContext.getString(R.string.user_already_exists));
+            } catch (Exception e) {
+                e.printStackTrace();
+                mViewListingNotes.onListingNotesFails(mContext.getString(R.string.something_went_wrong));
+            }
         }
     }
 }

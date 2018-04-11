@@ -2,6 +2,7 @@ package com.udacity.noter.add_note;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -24,7 +25,7 @@ public class ActivityAddNote extends BaseActivity implements ViewAddNote {
     private Button btnAdd;
     private PresenterAddNote presenterAddNote;
 
-    public static void startActivity(Context context){
+    public static void startActivity(Context context) {
         Intent intent = new Intent(context, ActivityAddNote.class);
         context.startActivity(intent);
     }
@@ -32,6 +33,8 @@ public class ActivityAddNote extends BaseActivity implements ViewAddNote {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Utilities.isTablet(this))
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_add_note);
         initializeViews();
         setListeners();

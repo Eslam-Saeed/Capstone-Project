@@ -15,4 +15,8 @@
     <string name="user_already_exists">Username already exists!</string>
 
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="todo">To-Do list</string>
+    <string name="todo_added_success">ToDo added successfully!</string>
+    <string name="empty">No ToDos right noew</string>
+    <bool name="isTablet">false</bool>
 </resources>

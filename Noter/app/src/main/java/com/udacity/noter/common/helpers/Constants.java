@@ -24,6 +24,7 @@ public class Constants {
 
 
     public class BundleKeys {
+        public static final String SELECTED_NOTE = "note_selected";
     }
 
 

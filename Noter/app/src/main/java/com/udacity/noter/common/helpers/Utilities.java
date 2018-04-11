@@ -7,6 +7,8 @@ import android.text.Html;
 import android.text.Spanned;
 import android.view.inputmethod.InputMethodManager;
 
+import com.udacity.noter.R;
+
 
 /**
  * Created by Eslam.Mahmoud on 10/12/2017.
@@ -31,6 +33,10 @@ public class Utilities {
             return model;
         }
         return manufacturer.concat(" ").concat(model);
+    }
+
+    public static boolean isTablet(Context context) {
+        return context.getResources().getBoolean(R.bool.isTablet);
     }
 
 }

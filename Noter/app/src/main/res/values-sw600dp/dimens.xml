@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Fonts -->
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_lsmall">16sp</dimen>
+    <dimen name="font_medium">18sp</dimen>
+    <dimen name="font_large">20sp</dimen>
+    <dimen name="font_xlarge">22sp</dimen>
+    <dimen name="font_xxlarge">28sp</dimen>
+    <dimen name="font_xxxlarge">36sp</dimen>
+    <dimen name="font_xxxxlarge">44sp</dimen>
+
+    <dimen name="padding_xSmall">6dp</dimen>
+    <dimen name="padding_small">6dp</dimen>
+    <dimen name="padding_medium">15dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+    <dimen name="padding_xlarge">25dp</dimen>
+    <dimen name="padding_xxlarge">35dp</dimen>
+
+    <dimen name="margin_vsmall">6dp</dimen>
+    <dimen name="margin_vsmall1">2dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
+    <dimen name="margin_medium">20dp</dimen>
+    <dimen name="margin_large">28dp</dimen>
+    <dimen name="margin_xlarge">36dp</dimen>
+    <dimen name="margin_xxlarge">50dp</dimen>
+    <dimen name="margin_xxxlarge">66dp</dimen>
+    <dimen name="margin_xxxxlarge">80dp</dimen>
+
+    <dimen name="margin_40">60dp</dimen>
+
+    <dimen name="corners">6dp</dimen>
+    <dimen name="btnHeight">44dp</dimen>
+    <dimen name="btn_corner">6dp</dimen>
+
+
+
+</resources>

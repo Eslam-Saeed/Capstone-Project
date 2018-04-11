@@ -33,6 +33,36 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
+        <activity
+            android:name=".todo.ActivityToDo"
+            android:parentActivityName=".main_notes.ActivityMain"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <provider
+            android:name=".common.dbandprovider.ToDosContentProvider"
+            android:authorities="com.udacity.noter"
+            android:exported="true"/>
+
+        <activity
+            android:name=".add_todo.ActivityAddToDo"
+            android:parentActivityName=".todo.ActivityToDo"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <receiver android:name=".common.widget.ToDoWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/todo_widget_info"/>
+        </receiver>
+
+        <service
+            android:name=".common.widget.GridWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 
 </manifest>

@@ -30,8 +30,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingEnd="@dimen/margin_xxlarge"
-            android:paddingStart="@dimen/margin_xxlarge">
+            android:paddingEnd="@dimen/margin_xxxxlarge"
+            android:paddingStart="@dimen/margin_xxxxlarge">
 
             <ImageView
                 android:id="@+id/imgLogo"

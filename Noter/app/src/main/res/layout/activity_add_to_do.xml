@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
-    tools:context=".add_note.ActivityAddNote">
+    tools:context=".add_todo.ActivityAddToDo">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -14,29 +13,20 @@
         android:elevation="@dimen/margin_vsmall"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-    <include
-        android:id="@+id/toolbarAddNote"
-        layout="@layout/toolbar"/>
+        <include
+            android:id="@+id/toolbarAddToDo"
+            layout="@layout/toolbar"/>
     </android.support.design.widget.AppBarLayout>
-
-    <EditText
-        android:id="@+id/edtTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appBar"
-        android:layout_margin="@dimen/margin_medium"
-        android:hint="@string/title"
-        android:padding="@dimen/padding_medium"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/btnAddNote"
-        android:layout_below="@id/edtTitle"
+        android:layout_below="@id/appBar"
         android:background="@color/white">
 
         <EditText
-            android:id="@+id/edtDescription"
+            android:id="@+id/edtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_medium"
@@ -46,7 +36,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btnAddNote"
+        android:id="@+id/btnAddToDo"
         android:layout_width="match_parent"
         android:layout_height="@dimen/btnHeight"
         android:layout_alignParentBottom="true"
@@ -56,8 +46,5 @@
         android:text="@string/add"
         android:textAllCaps="false"
         android:textColor="@color/white"/>
-    <include
-        android:visibility="gone"
-        android:id="@+id/progressAddNote"
-        layout="@layout/progress_bar"/>
+
 </RelativeLayout>

@@ -29,23 +29,11 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/txtDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtTitle"
-            android:layout_marginTop="@dimen/margin_small"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textAlignment="viewStart"
-            android:textColor="@color/fontColor"
-            android:textSize="@dimen/font_large"/>
-
-        <TextView
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/txtDescription"
+            android:layout_below="@id/txtTitle"
             android:layout_marginTop="@dimen/margin_small"
             android:textColor="@color/fontColorLight"
             android:textSize="@dimen/font_medium"/>

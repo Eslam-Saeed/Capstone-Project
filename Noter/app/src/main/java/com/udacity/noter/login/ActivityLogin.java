@@ -1,5 +1,6 @@
 package com.udacity.noter.login;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -30,6 +31,8 @@ public class ActivityLogin extends BaseActivity implements ViewLogin {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Utilities.isTablet(this))
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_login);
         initializeViews();
         setListeners();
@@ -76,6 +79,7 @@ public class ActivityLogin extends BaseActivity implements ViewLogin {
     public void onLoginSuccess() {
         User.initUser(mPresenterLogin.getCurrentUser(), this);
         ActivityMain.startActivity(this);
+        finish();
     }
 
     @Override

@@ -62,7 +62,7 @@ public class PresenterLogin extends BasePresenter {
             ConnectToDB connectToDB = new ConnectToDB();
             try {
                 response = connectToDB.post(url, MyApplication.getmGson().toJson(users[0]));
-                return response;
+                //return response;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -72,14 +72,19 @@ public class PresenterLogin extends BasePresenter {
         @Override
         protected void onPostExecute(String response) {
             mViewLogin.showProgress(false);
-            if (!TextUtils.isEmpty(response) && !response.contains(Constants.GeneralKeys.FAILED_MESSAGE)) {
-                User user = MyApplication.getmGson().fromJson(response, User.class);
-                currentUser.setId(user.getId());
-                currentUser.setUserName(user.getUserName());
-                currentUser.setPassword(user.getPassword());
-                mViewLogin.onLoginSuccess();
-            } else
-                mViewLogin.onLoginFail(mContext.getString(R.string.user_already_exists));
+            try {
+                if (!TextUtils.isEmpty(response) && !response.contains(Constants.GeneralKeys.FAILED_MESSAGE)) {
+                    User user = MyApplication.getmGson().fromJson(response, User.class);
+                    currentUser.setId(user.getId());
+                    currentUser.setUserName(user.getUserName());
+                    currentUser.setPassword(user.getPassword());
+                    mViewLogin.onLoginSuccess();
+                } else
+                    mViewLogin.onLoginFail(mContext.getString(R.string.user_already_exists));
+            } catch (Exception e) {
+                e.printStackTrace();
+                mViewLogin.onLoginFail(mContext.getString(R.string.something_went_wrong));
+            }
         }
     }
 

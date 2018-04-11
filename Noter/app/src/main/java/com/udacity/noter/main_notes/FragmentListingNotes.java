@@ -24,9 +24,16 @@ public class FragmentListingNotes extends BaseFragment implements ViewListingNot
     private FloatingActionButton fabAddNote;
     private PresenterListingNotes presenterListingNotes;
     private AdapterListingNotes mAdapterListingNotes;
+    private ListingNotesInteraction mListingNotesInteraction;
 
     public static FragmentListingNotes newInstance() {
         return new FragmentListingNotes();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mListingNotesInteraction = (ListingNotesInteraction) context;
     }
 
     @Override
@@ -93,5 +100,11 @@ public class FragmentListingNotes extends BaseFragment implements ViewListingNot
     @Override
     public void onNoteClicked(Note note) {
         //TODO - navigate to note details
+        if(mListingNotesInteraction != null)
+            mListingNotesInteraction.onNoteClicked(note);
+    }
+
+    interface ListingNotesInteraction {
+        void onNoteClicked(Note note);
     }
 }
