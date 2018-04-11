@@ -11,6 +11,7 @@ import com.udacity.noter.common.helpers.MyApplication;
 import com.udacity.noter.common.network.ConnectToDB;
 import com.udacity.noter.common.network.Urls;
 import com.udacity.noter.model.Note;
+import com.udacity.noter.model.User;
 
 import java.io.IOException;
 
@@ -25,6 +26,7 @@ public class PresenterAddNote extends BasePresenter {
 
     void addNote(Note note) {
         mViewAddNote.showProgress(true);
+        note.setNoteUserId(User.getLoggedInUser(mContext).getId());
         new TaskAddNote().execute(note);
     }
 

@@ -98,5 +98,6 @@ public class ActivityLogin extends BaseActivity implements ViewLogin {
     @Override
     public void showProgress(boolean shouldShow) {
         mProgressBarLogin.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
+        btnLogin.setEnabled(!shouldShow);
     }
 }
