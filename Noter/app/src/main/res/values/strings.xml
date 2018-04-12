@@ -18,5 +18,8 @@
     <string name="todo">To-Do list</string>
     <string name="todo_added_success">ToDo added successfully!</string>
     <string name="empty">No ToDos right noew</string>
+    <string name="imageview_logo">ImageView Logo</string>
+    <string name="desc_fab_add_todo">FAB to navigate to adding ToDo</string>
+    <string name="desc_fab_add_note">FAB navigate to add Note</string>
     <bool name="isTablet">false</bool>
 </resources>

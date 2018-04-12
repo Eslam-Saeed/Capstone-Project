@@ -2,13 +2,11 @@ package com.udacity.noter.todo;
 
 import android.app.LoaderManager;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +24,7 @@ import java.util.ArrayList;
 
 public class ActivityToDo extends BaseActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    private static final int ADD_TODO_REQUEST_CODE = 13;
     private Toolbar mToolbarToDo;
     private RecyclerView rvTodo;
     private FloatingActionButton fabAddToDo;
@@ -75,7 +74,8 @@ public class ActivityToDo extends BaseActivity implements LoaderManager.LoaderCa
     private View.OnClickListener fabAddToDoClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            ActivityAddToDo.startActivity(mContext);
+            Intent intent = ActivityAddToDo.createIntent(mContext);
+            startActivityForResult(intent, ADD_TODO_REQUEST_CODE);
         }
     };
 
@@ -106,5 +106,18 @@ public class ActivityToDo extends BaseActivity implements LoaderManager.LoaderCa
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         rvTodo.setAdapter(null);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ADD_TODO_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                if (listToDos != null) {
+                    listToDos.clear();
+                    getLoaderManager().restartLoader(0,null,this);
+                }
+            }
+        }
     }
 }

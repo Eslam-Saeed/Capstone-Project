@@ -27,7 +27,7 @@
         android:layout_marginBottom="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:src="@drawable/ic_add"
-        android:contentDescription=""
+        android:contentDescription="@string/desc_fab_add_note"
         app:layout_anchor="@id/rvListNotes"
         app:layout_anchorGravity="bottom|end"/>
 </RelativeLayout>

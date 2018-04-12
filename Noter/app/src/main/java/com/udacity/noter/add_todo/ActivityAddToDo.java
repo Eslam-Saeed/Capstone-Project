@@ -23,9 +23,8 @@ public class ActivityAddToDo extends BaseActivity {
     private ToDosDBController toDosDBController;
     private Context mContext;
 
-    public static void startActivity(Context context) {
-        Intent intent = new Intent(context, ActivityAddToDo.class);
-        context.startActivity(intent);
+    public static Intent createIntent(Context context) {
+        return new Intent(context, ActivityAddToDo.class);
     }
 
     @Override
@@ -60,6 +59,7 @@ public class ActivityAddToDo extends BaseActivity {
                 long response = toDosDBController.addNewToDo(new ToDo(edtTitle.getText().toString()));
                 if (response == 1) {
                     UIUtilities.showMessage(mContext, getString(R.string.todo_added_success));
+                    setResult(RESULT_OK);
                     finish();
                 } else
                     UIUtilities.showMessage(mContext, getString(R.string.something_went_wrong));

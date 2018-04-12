@@ -1,6 +1,7 @@
 package com.udacity.noter.main_notes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -14,10 +15,14 @@ import android.widget.ProgressBar;
 import com.udacity.noter.R;
 import com.udacity.noter.add_note.ActivityAddNote;
 import com.udacity.noter.common.base.BaseFragment;
+import com.udacity.noter.common.helpers.Constants;
 import com.udacity.noter.common.helpers.UIUtilities;
 import com.udacity.noter.model.Note;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentListingNotes extends BaseFragment implements ViewListingNotes, AdapterListingNotes.OnNoteClicked {
+    private static final int ADD_NOTE_REQUEST_CODE = 12;
     private Context mContext;
     private RecyclerView rvListNotes;
     private ProgressBar progressListingNotes;
@@ -77,7 +82,8 @@ public class FragmentListingNotes extends BaseFragment implements ViewListingNot
     private View.OnClickListener fabAddNoteCLickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            ActivityAddNote.startActivity(mContext);
+            Intent intent = ActivityAddNote.createIntent(mContext);
+            startActivityForResult(intent, ADD_NOTE_REQUEST_CODE);
         }
     };
 
@@ -100,11 +106,24 @@ public class FragmentListingNotes extends BaseFragment implements ViewListingNot
     @Override
     public void onNoteClicked(Note note) {
         //TODO - navigate to note details
-        if(mListingNotesInteraction != null)
+        if (mListingNotesInteraction != null)
             mListingNotesInteraction.onNoteClicked(note);
     }
 
     interface ListingNotesInteraction {
         void onNoteClicked(Note note);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ADD_NOTE_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                if (presenterListingNotes != null && presenterListingNotes.getListNotes() != null) {
+                    presenterListingNotes.getListNotes().clear();
+                    presenterListingNotes.getMyNotes();
+                }
+            }
+        }
     }
 }

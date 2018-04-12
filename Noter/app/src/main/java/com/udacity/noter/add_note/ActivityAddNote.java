@@ -25,9 +25,9 @@ public class ActivityAddNote extends BaseActivity implements ViewAddNote {
     private Button btnAdd;
     private PresenterAddNote presenterAddNote;
 
-    public static void startActivity(Context context) {
-        Intent intent = new Intent(context, ActivityAddNote.class);
-        context.startActivity(intent);
+    public static Intent createIntent(Context context) {
+        return new Intent(context, ActivityAddNote.class);
+
     }
 
     @Override
@@ -70,6 +70,7 @@ public class ActivityAddNote extends BaseActivity implements ViewAddNote {
     @Override
     public void onAddNoteSuccess() {
         UIUtilities.showMessage(this, getString(R.string.add_note_success));
+        setResult(RESULT_OK);
         finish();
     }
 
